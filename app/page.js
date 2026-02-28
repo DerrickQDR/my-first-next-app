@@ -63,7 +63,14 @@ export default async function ProfileCard() {
                         </Link>
                     ))}
                 </div>
-            </div>
+                    //* 下半部分：高科技文章列表区域 
+                <div style={{ marginTop: '40px', padding: '0 20px' }}>
+                    <h2 style={{ fontSize: '24px', marginBottom: '20px', color: '#333' }}>最新文章 📝</h2>
+                    
+                    {/* 👇 把服务器拿到的 posts 数据，当做礼物（props）送给客户端组件！ */}
+                    <SearchablePostList initialPosts={posts} />
+                </div>
+                </div>
 
         </main>
     );
