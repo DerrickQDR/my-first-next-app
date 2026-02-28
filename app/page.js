@@ -1,6 +1,7 @@
 import LikeButton from './LikeButton'; 
 import styles from './page.module.css'; 
 import Link from 'next/link'; // 👈 不要忘记引入 Link 组件！
+import SearchablePostList from './SearchablePostList';
 
 export default async function ProfileCard() { 
     // 1. 获取随机名言数据
@@ -8,9 +9,11 @@ export default async function ProfileCard() {
     const quoteData = await quoteRes.json();
     
     // 2. 获取博客文章列表（为了不让页面太长，我们只抓取前 3 篇，加上 ?limit=3）
-    const postsRes = await fetch('https://dummyjson.com/posts?limit=5');
+    const postsRes = await fetch('https://dummyjson.com/posts?limit=3');
     const postsData = await postsRes.json();
     const posts = postsData.posts; // 这是一个包含 3 篇文章的数组
+    const secretRes = await fetch('http://localhost:3000/api/hello');
+    const secretData = await secretRes.json();
 
     return (
         // 我们用一个大盒子把名片和文章列表包起来，让它们在页面居中
@@ -27,6 +30,11 @@ export default async function ProfileCard() {
                     <small style={{display: 'block', marginTop: '10px', fontWeight: 'bold'}}>
                         — {quoteData.author}
                     </small>
+                </div>
+                <div style={{ marginTop: '20px' }}>
+                      <p style={{ fontSize: '16px', color: '#555' }}>
+                        {secretData.message} {/* 👈 显示从服务器拿到的秘密消息 */}
+                      </p>
                 </div>
                 
                 <LikeButton />
@@ -63,9 +71,7 @@ export default async function ProfileCard() {
                         </Link>
                     ))}
                 </div>
-                    //* 下半部分：高科技文章列表区域 
                 <div style={{ marginTop: '40px', padding: '0 20px' }}>
-                    <h2 style={{ fontSize: '24px', marginBottom: '20px', color: '#333' }}>最新文章 📝</h2>
                     
                     {/* 👇 把服务器拿到的 posts 数据，当做礼物（props）送给客户端组件！ */}
                     <SearchablePostList initialPosts={posts} />
