@@ -1,11 +1,15 @@
+/* 1. 默认（浅色模式）的调色盘 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #836221; /* ✨ 在这里修改你的背景色！ */
+  --foreground: #171717; /* 字体的颜色 */
 }
 
+/* 2. 深色模式的调色盘 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    /* 如果你希望深色模式下也是这个米白色，就把下面这行也改成 #fdfbf7 */
+    /* 否则它在深色模式下会保持纯黑 #0a0a0a */
+    --background: #570808; 
     --foreground: #ededed;
   }
 }
@@ -18,7 +22,8 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  /* 3. 恢复使用变量：告诉 body 去调色盘里拿背景色 */
+  background: var(--background); 
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

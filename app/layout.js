@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import './globals.css';
 // 这是网页的默认标题和描述（对搜索引擎很有用）
 export const metadata = {
   title: '我的个人网站',
