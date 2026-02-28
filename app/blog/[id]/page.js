@@ -23,7 +23,7 @@ export default async function BlogPost({ params }) {
 
   // 5. 渲染页面，把真实的文章标题和内容放进去！
   return (
-    <div style={{ maxWidth: '600px', margin: '50px auto', padding: '20px', background: 'white', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
+    <div style={{ maxWidth: '1500px', margin: '50px auto', padding: '20px', background: 'white', borderRadius: '60px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
       {/* 顶部的返回链接 */}
       <Link href="/" style={{ color: '#0070f3', textDecoration: 'none', fontWeight: 'bold', marginBottom: '20px', display: 'inline-block' }}>
         👈 返回首页
