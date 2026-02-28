@@ -1,5 +1,5 @@
 import LikeButton from './LikeButton'; 
-
+import styles from './page.module.css';
 export default async function ProfileCard() { 
     
 
@@ -8,11 +8,11 @@ export default async function ProfileCard() {
     const data = await res.json();
     
     return (
-        <div style={{ border: '1px solid #ccc', padding: '20px', borderRadius: '8px', maxWidth: '400px' }}>
+        <div className={styles.card}>
             <h1>derrick Wong</h1>
             <p>I am a software engineer</p>
             
-            <blockquote style={{ fontStyle: 'italic', color: '#555', borderLeft: '4px solid #ddd', paddingLeft: '10px' }}>
+            <blockquote className={styles.quoteBox}>
                 "{data.quote}" 
                 <br />
                 <small>— {data.author}</small>
