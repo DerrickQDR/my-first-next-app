@@ -9,7 +9,7 @@ export default async function ProfileCard() {
     
     return (
         <div style={{ border: '1px solid #ccc', padding: '20px', borderRadius: '8px', maxWidth: '400px' }}>
-            <h1>张三</h1>
+            <h1>derrick Wong</h1>
             <p>I am a software engineer</p>
             
             <blockquote style={{ fontStyle: 'italic', color: '#555', borderLeft: '4px solid #ddd', paddingLeft: '10px' }}>
